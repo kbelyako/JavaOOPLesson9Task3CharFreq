@@ -1,6 +1,7 @@
 package com.yandex.kbelyako;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,30 +38,54 @@ public class Main {
 		} catch (IOException e) {
 			System.out.println("ERROR");
 		}
-
+String res1=FiletoString("d.txt");
 		System.out.println(res);
+		System.out.println(res1);
+		char[] charArray = res.toCharArray();
+		String alphabetString = "abcdefghijklmnopqrstuvwxyz";
+		char[] alphabet = alphabetString.toCharArray();
 
-		char[] array = res.toCharArray();
-
-		char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-				's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 		ArrayList<CharFreq> alphabetList = new ArrayList<CharFreq>();
 
-		CharFreq tmp = new CharFreq(' ', 0);
-
 		for (int i = 0; i < alphabet.length; i++) {
-			// System.out.println(alphabet[i]);
+			CharFreq tmp = new CharFreq(' ', 0);
 			tmp.setCharM(alphabet[i]);
-
-			// System.out.println(tmp);
 			alphabetList.add(tmp);
-
-			// System.out.println(alphabetList);
-
 		}
+
+		// System.out.println(alphabetList(3));
 		System.out.println(alphabetList);
 		System.out.println(alphabetList.size());
 
+		for (int i = 0; i < charArray.length; i++) {
+			for (int j = 0; j < alphabetList.size(); j++) {
+				if (charArray[i] == alphabetList.get(j).getCharM()) {
+					int counter = alphabetList.get(j).getFreq() + 1;
+					alphabetList.get(j).setFreq(counter);
+				}
+			}
+		}
+
+		Collections.sort(alphabetList);
+		System.out.println(alphabetList);
+
+	}
+
+	public static String FiletoString(String fileName) {
+		String res = "";
+		try (BufferedReader f = new BufferedReader(new FileReader(fileName))) {
+			String str = "";
+			String str1 = "";
+			for (; (str1 = f.readLine()) != null;) {
+				str = str1 + str;
+
+			}
+			res = str;
+		} catch (IOException e) {
+			System.out.println("ERROR");
+		}
+
+		return res;
 	}
 
 }

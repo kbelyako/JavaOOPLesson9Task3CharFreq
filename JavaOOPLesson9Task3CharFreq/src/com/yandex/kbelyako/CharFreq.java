@@ -59,7 +59,8 @@ public class CharFreq implements Comparable <CharFreq> {
 	public int compareTo(CharFreq o) {
 		
 	
-		return Math.abs(this.freq)-Math.abs(o.getFreq());
+	//	return Math.abs(this.freq)-Math.abs(o.getFreq());
+		return Math.abs(o.getFreq())-Math.abs(this.freq);
 	}
 
 	
