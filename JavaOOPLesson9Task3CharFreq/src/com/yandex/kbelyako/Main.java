@@ -11,25 +11,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		CharFreq a = new CharFreq('d', 5);
+		String res = FiletoString("d.txt");
 
-		CharFreq b = new CharFreq('e', 7);
+		//System.out.println(res);
 
-		CharFreq c = new CharFreq('t', 2);
-
-		ArrayList<CharFreq> test = new ArrayList<CharFreq>();
-
-		test.add(a);
-		test.add(c);
-		test.add(b);
-
-		System.out.println(test);
-		Collections.sort(test);
-		System.out.println(test);
-		String res =FiletoString("d.txt");
-	     
-		System.out.println(res);
-		
 		char[] charArray = res.toCharArray();
 		String alphabetString = "abcdefghijklmnopqrstuvwxyz";
 		char[] alphabet = alphabetString.toCharArray();
