@@ -26,21 +26,10 @@ public class Main {
 		System.out.println(test);
 		Collections.sort(test);
 		System.out.println(test);
-		String res = "";
-		try (BufferedReader f = new BufferedReader(new FileReader("d.txt"))) {
-			String str = "";
-			String str1 = "";
-			for (; (str1 = f.readLine()) != null;) {
-				str = str1 + str;
-
-			}
-			res = str;
-		} catch (IOException e) {
-			System.out.println("ERROR");
-		}
-String res1=FiletoString("d.txt");
+		String res =FiletoString("d.txt");
+	     
 		System.out.println(res);
-		System.out.println(res1);
+		
 		char[] charArray = res.toCharArray();
 		String alphabetString = "abcdefghijklmnopqrstuvwxyz";
 		char[] alphabet = alphabetString.toCharArray();
@@ -53,7 +42,6 @@ String res1=FiletoString("d.txt");
 			alphabetList.add(tmp);
 		}
 
-		// System.out.println(alphabetList(3));
 		System.out.println(alphabetList);
 		System.out.println(alphabetList.size());
 
